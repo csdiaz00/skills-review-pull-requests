@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v4
       - id: get_step
         run: |
-          echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+delete spaces from cat to the dot in the .github/steps 
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 

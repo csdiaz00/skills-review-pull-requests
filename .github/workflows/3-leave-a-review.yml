@@ -30,7 +30,7 @@ jobs:
 delete spaces from cat to the dot in the .github/steps 
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
-
+adjust code '{ steps.get_step.outputs.current_step}'
   on_leave_review:
     name: On leave review
     needs: get_current_step

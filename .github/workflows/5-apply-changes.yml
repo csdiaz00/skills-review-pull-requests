@@ -52,7 +52,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Let's get all the branches.
+get all the branches for? to the next step?
           ref: update-game
 
       # In README.md, switch step 5 for step 6.

@@ -24,13 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
       - id: get_step
         run: |
-          echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+delete spaces from cat to the dot in the .github/steps 
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
-
+adjust code '{ steps.get_step.outputs.current_step}'
   on_leave_review:
     name: On leave review
     needs: get_current_step
@@ -50,7 +50,7 @@ jobs:
     steps:
       # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
-        uses: actions/checkout@v6
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0 # Let's get all the branches.
           ref: update-game

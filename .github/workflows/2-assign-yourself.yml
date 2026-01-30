@@ -53,7 +53,7 @@ elaborate which step
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0 # Let's get all the branches.
+merge branches instead 
           ref: update-game
 
       # In README.md, switch step 2 for step 3.

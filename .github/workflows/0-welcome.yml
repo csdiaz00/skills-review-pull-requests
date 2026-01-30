@@ -66,7 +66,7 @@ adjust wording preparing a branch for ""
             exit 0
           fi
 
-          echo "Make a branch"
+          echo "Make a branch for the next step"
           BRANCH=update-game
           git checkout -b $BRANCH
 

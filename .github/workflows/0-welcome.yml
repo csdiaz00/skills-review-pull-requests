@@ -57,7 +57,7 @@ jobs:
 merge branches 
 
       # Create update-game branch, update game, and create pull request for the learner.
-      - name: Prepare a branch and pull request
+adjust wording preparing a branch for ""
         run: |
           echo "Make sure we are on step 0"
           if [ "$(cat .github/steps/-step.txt)" != 0 ]

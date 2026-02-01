@@ -54,7 +54,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-            # merge branches 
+          
 
       # Create update-game branch, update game, and create pull request for the learner.
           #adjust wording preparing a branch for ""
@@ -74,10 +74,13 @@ jobs:
           sed -i.bak 's/Game over/Game over, refresh to play again 🧑‍💻 🤖!/' index.html
 
           echo "Make a commit"
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git commit --message="Update game over message"
+          BRANCH=update-game
+          git checkout -b $BRANCH
+
 
           echo "Push"
           git push --set-upstream origin $BRANCH
@@ -95,3 +98,5 @@ jobs:
           from_step: 0
           to_step: 1
           branch_name: update-game
+          sed -i.bak 's/Game over/Game over, refresh to play again 🧑‍💻 🤖!/' index.html
+

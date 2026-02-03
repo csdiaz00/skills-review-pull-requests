@@ -26,10 +26,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
       - id: get_step
         run: |
-          echo "current_step=$(cat ./.github/steps/-step.txt)" >> $GITHUB_OUTPUT
+         
     outputs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 
@@ -50,23 +50,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-Good comments to keep project in check throughout
+      # We'll need to check out the repository so that we can edit the README.
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
-          fetch-depth: 0 # Let's get all the branches.
+          
 
       # Create update-game branch, update game, and create pull request for the learner.
-      - name: Prepare a branch and pull request
+          #adjust wording preparing a branch for ""
         run: |
           echo "Make sure we are on step 0"
           if [ "$(cat .github/steps/-step.txt)" != 0 ]
           then
             echo "Current step is not 0"
             exit 0
-          fi
+          fix
 
-          echo "Make a branch"
+          echo "Make a branch for the next step"
           BRANCH=update-game
           git checkout -b $BRANCH
 
@@ -74,10 +74,13 @@ Good comments to keep project in check throughout
           sed -i.bak 's/Game over/Game over, refresh to play again 🧑‍💻 🤖!/' index.html
 
           echo "Make a commit"
-          git config user.name github-actions[bot]
-          git config user.email github-actions[bot]@users.noreply.github.com
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add index.html
           git commit --message="Update game over message"
+          BRANCH=update-game
+          git checkout -b $BRANCH
+
 
           echo "Push"
           git push --set-upstream origin $BRANCH
@@ -95,3 +98,5 @@ Good comments to keep project in check throughout
           from_step: 0
           to_step: 1
           branch_name: update-game
+          sed -i.bak 's/Game over/Game over, refresh to play again 🧑‍💻 🤖!/' index.html
+

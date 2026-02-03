@@ -16,7 +16,7 @@ on:
 permissions:
   # Need `contents: read` to checkout the repository.
   # Need `contents: write` to update the step metadata.
-  contents: write. 
+  contents: write 
 
 jobs:
   # Get the current step to only run the main job when the learner is on the same step.
@@ -33,7 +33,7 @@ jobs:
       current_step: ${{ steps.get_step.outputs.current_step }}
 
   on_open_a_pull_request:
-    name: On open a pull request
+    name: On open a pull request. 
     needs: get_current_step
 
     # We will only run this action when:
